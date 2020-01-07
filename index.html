@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title> 유투브 배경</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- 유투브 배경 -->
+  <script src="jquery.youtube-background.js"></script>
+  <!-- 갤러리 팬시박스 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+  <!-- 진입 애니메이션 -->
+  <script src="https://unpkg.com/enter-view"></script>
+  <!-- 애니메이션 키프레임 -->
+  <link rel="stylesheet" href="ani.css">
+
+  <script src="main.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav id="gnb">
+      <ul>
+        <li><a href="#s1">Home</a></li>
+        <li><a href="#s2">Portfolio</a></li>
+        <li><a href="#s3">Contact me</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <nav id="pager">
+    <ul>
+      <li class="on"><a href="#s1">1</a></li>
+      <li><a href="#s2">2</a></li>
+      <li><a href="#s3">3</a></li>
+    </ul>
+  </nav>
+
+  <section id="s1">
+    <div class="header_group">
+      <h1>Creative Web Publisher</h1>
+      <h2>Hong Gilg Dong</h2>
+    </div>
+    <div class="you-bg" data-youtube="https://youtu.be/b06pKMxF6h8">
+    </div>
+  </section>
+
+  <section id="s2">
+    <div class="container">
+      <h1>Portfolio</h1>
+      <ul>
+        <li><a data-fancybox_="gallery" href="https://cafe.naver.com/csslick/5008"><img
+              src="http://placeimg.com/400/400/1"></a></li>
+        <li><a data-fancybox="gallery" href="http://placeimg.com/400/400/2"><img
+              src="http://placeimg.com/400/400/2"></a></li>
+        <li><a data-fancybox="gallery" href="http://placeimg.com/400/400/3"><img
+              src="http://placeimg.com/400/400/3"></a></li>
+        <li><a data-fancybox="gallery" href="http://placeimg.com/400/400/4"><img
+              src="http://placeimg.com/400/400/4"></a></li>
+        <li><a data-fancybox="gallery" href="http://placeimg.com/400/400/5"><img
+              src="http://placeimg.com/400/400/5"></a></li>
+        <li><a data-fancybox="gallery" href="http://placeimg.com/400/400/6"><img
+              src="http://placeimg.com/400/400/6"></a></li>
+      </ul>
+
+
+    </div><!-- end container -->
+  </section>
+
+  <section id="s3">
+    <h1>Contact me</h1>
+  </section>
+
+  <script>
+    $(function () {
+      $('[data-youtube]').youtube_background();
+    })
+
+
+    // 콘텐츠 애니메이션 설정
+    enterView({
+      selector: '.header_group',  // 화면에 진입했을때 애니메이션이 될 요소명
+      offset: 0.5,          // 시작 지연시간(ms)
+      enter: function (el) {
+        el.classList.add('fade-slide-right');  // 애니메이션 클래스 명(CSS)
+      },
+    });
+
+    enterView({
+      selector: '#s2 ul', 
+      offset: 0.5, 
+      enter: function (el) {
+        el.classList.add('fade-slide-down'); 
+      },
+    }); 
+  </script>
+</body>
+
+</html>
